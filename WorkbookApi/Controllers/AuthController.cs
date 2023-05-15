@@ -14,7 +14,7 @@ using WorkbookApi.Security;
 
 namespace WorkbookApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {

@@ -21,8 +21,6 @@ namespace WorkbookApi.DAL
 
                 entity.HasKey(e => e.Id);
 
-                entity.HasKey(e => e.Id);
-
                 entity.Property(e => e.Username).IsRequired().HasMaxLength(50);
                 entity.Property(e => e.PasswordHash)
                 .IsRequired()
