@@ -27,9 +27,9 @@ namespace WorkbookApi.Controllers
             _context = context;
         }
 
-        // GET: api/Auth
+        // POST: api/Auth
         [HttpPost("login")]
-        public async Task<ActionResult<UserWithTokenDto>> Login(LoginDto request)
+        public async Task<ActionResult<UserDataDto>> Login(LoginDto request)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == request.Email);
 
@@ -46,7 +46,7 @@ namespace WorkbookApi.Controllers
             var expiresIn = DateTime.Now.AddMinutes(45);
             var token = _tokenBuilder.Build(user.Email, expiresIn);
 
-            var dto = new UserWithTokenDto { Email = user.Email, Username = user.Username, Token = token };  
+            var dto = new UserDataDto { Id = user.Id, Email = user.Email, Username = user.Username, ProfileImage = user.ProfileImage };  
 
             return Ok(dto);
         }
@@ -79,7 +79,6 @@ namespace WorkbookApi.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(user);
-
         }
 
      
