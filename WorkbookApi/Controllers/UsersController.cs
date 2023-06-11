@@ -7,6 +7,7 @@ using WorkbookApi.Dtos;
 
 [Route("api/users")]
 [ApiController]
+
 public class UsersController : ControllerBase
 {
     private readonly WorkbookDbContext _context;
@@ -17,7 +18,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost("update")]
-    public async Task<ActionResult<UserDataDto>> Login([FromBody]UpdateDto request)
+    public async Task<ActionResult<UserDataDto>> Update(UpdateDto request)
     {
         var user = _context.Users.FirstOrDefault(u => u.Id == request.Id);
 

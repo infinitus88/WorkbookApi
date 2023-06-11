@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using SQLitePCL;
 using WorkbookApi.DAL.Entities;
 
 namespace WorkbookApi.DAL
